@@ -1,0 +1,325 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar - both vertical and horizontal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.6), rgba(236, 72, 153, 0.6));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.8), rgba(236, 72, 153, 0.8));
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+
+
+
+
+html, body {
+ overscroll-behavior: none; 
+  background-color: #000000 !important;
+}
+
+
+.bg-dark-premium {
+  background-color: #000000 !important;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar - both vertical and horizontal */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.3);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.6), rgba(236, 72, 153, 0.6));
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.8), rgba(236, 72, 153, 0.8));
+}
+
+::-webkit-scrollbar-corner {
+    background: rgba(15, 23, 42, 0.3);
+}
+
+/* Pure dark background */
+body {
+    background-color: #000000 !important;
+}
+
+.bg-dark-premium {
+    background-color: #000000 !important;
+    min-height: 100vh;
+}
+
+/* --- ENHANCED PREMIUM GRADIENT CARDS --- */
+.gradient-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%); /* Slightly darker base */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Thinner, more subtle border */
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Slower, smoother transition */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), /* Stronger outer shadow */
+                inset 0 0 0 0px transparent; /* Initial inner glow */
+    display: flex; /* Ensure content alignment */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Push title/desc up, link down */
+}
+
+/* subtle top border shine - unchanged, still good! */
+.gradient-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); /* Reduced intensity */
+    opacity: 0.7; /* Make it less prominent */
+}
+
+/* Inner glow / border on hover */
+.gradient-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    border: 0px solid transparent; /* Initial transparent border */
+    transition: border 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth border transition */
+    pointer-events: none; /* Make sure it doesn't interfere with clicks */
+    z-index: 1; /* Ensure it's above other elements but below content */
+}
+
+.gradient-card:hover {
+    transform: translateY(-10px) scale(1.02); /* More pronounced lift and scale */
+    border-color: rgba(255, 255, 255, 0.2); /* Slightly stronger border on hover */
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6), /* Deeper shadow on hover */
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05), /* Subtle inner ring */
+                inset 0 0 50px rgba(255, 255, 255, 0.02); /* Soft inner glow */
+}
+
+/* Active inner border on hover */
+.gradient-card:hover::after {
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Visible inner border on hover */
+}
+
+/* --- Color Variations - Adjusted to blend better with dark theme --- */
+.card-blue {
+    background: linear-gradient(145deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.08) 100%);
+    border-color: rgba(59, 130, 246, 0.2);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.05); /* Lighter shadow */
+}
+.card-blue:hover {
+    box-shadow: 0 25px 70px rgba(59, 130, 246, 0.2), /* More intense hover shadow */
+                inset 0 0 0 1px rgba(59, 130, 246, 0.1),
+                inset 0 0 50px rgba(59, 130, 246, 0.05);
+}
+
+
+.card-purple {
+    background: linear-gradient(145deg, rgba(147, 51, 234, 0.15) 0%, rgba(126, 34, 206, 0.08) 100%);
+    border-color: rgba(147, 51, 234, 0.2);
+    box-shadow: 0 8px 32px rgba(147, 51, 234, 0.05);
+}
+.card-purple:hover {
+    box-shadow: 0 25px 70px rgba(147, 51, 234, 0.2),
+                inset 0 0 0 1px rgba(147, 51, 234, 0.1),
+                inset 0 0 50px rgba(147, 51, 234, 0.05);
+}
+
+.card-pink {
+    background: linear-gradient(145deg, rgba(236, 72, 153, 0.15) 0%, rgba(219, 39, 119, 0.08) 100%);
+    border-color: rgba(236, 72, 153, 0.2);
+    box-shadow: 0 8px 32px rgba(236, 72, 153, 0.05);
+}
+.card-pink:hover {
+    box-shadow: 0 25px 70px rgba(236, 72, 153, 0.2),
+                inset 0 0 0 1px rgba(236, 72, 153, 0.1),
+                inset 0 0 50px rgba(236, 72, 153, 0.05);
+}
+
+.card-emerald {
+    background: linear-gradient(145deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.08) 100%);
+    border-color: rgba(16, 185, 129, 0.2);
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.05);
+}
+.card-emerald:hover {
+    box-shadow: 0 25px 70px rgba(16, 185, 129, 0.2),
+                inset 0 0 0 1px rgba(16, 185, 129, 0.1),
+                inset 0 0 50px rgba(16, 185, 129, 0.05);
+}
+
+.card-amber {
+    background: linear-gradient(145deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.08) 100%);
+    border-color: rgba(245, 158, 11, 0.2);
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.05);
+}
+.card-amber:hover {
+    box-shadow: 0 25px 70px rgba(245, 158, 11, 0.2),
+                inset 0 0 0 1px rgba(245, 158, 11, 0.1),
+                inset 0 0 50px rgba(245, 158, 11, 0.05);
+}
+
+/* Enhanced animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards; /* Added forwards to keep final state */
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.enhanced-animate {
+    opacity: 0;
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Code styles - unchanged, still good */
+.prose code {
+    font-family: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9em;
+    border-radius: 4px;
+    padding: 2px 6px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prose pre {
+    font-family: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background-color: #1e293b;
+    color: #f1f5f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive container - Adjusted padding to allow vertical padding via Tailwind */
+.container-responsive {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem; /* Only horizontal padding here */
+    padding-right: 1rem; /* Only horizontal padding here */
+}
+
+@media (min-width: 640px) {
+    .container-responsive {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-responsive {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* --- Add this at the end of your globals.css --- */
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient linear infinite;
+}
+
+/* --- Add this at the end of your globals.css --- */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+
+
+
+
+.text-glow-purple {
+  text-shadow: 0 0 8px rgba(192, 132, 252, 0.4), /* purple-400 */
+               0 0 20px rgba(147, 51, 234, 0.2); /* purple-600 */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+
+@keyframes text-gradient-shine {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Class to apply the animation */
+.animate-text-gradient {
+  background-size: 200% auto;
+  animation: text-gradient-shine 5s linear infinite;
+}
