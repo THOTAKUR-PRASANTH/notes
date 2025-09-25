@@ -213,6 +213,37 @@ export default function HomePage() {
             </svg>
           </div>
         </a>
+
+<a
+          href="/day6"
+          className="gradient-card card-cyan p-6 group enhanced-animate delay-600"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold text-cyan-300">Day 6</h2>
+            <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+          </div>
+          <p className="text-slate-300 mb-4">
+            File Handling & Exception Handling 
+          </p>
+          <div className="flex items-center text-cyan-400 group-hover:text-cyan-300 transition-colors">
+            <span className="mr-2">Open</span>
+            <svg
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </div>
+        </a>
+
+
       </section>
     </div>
   );
