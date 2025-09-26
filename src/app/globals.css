@@ -645,3 +645,23 @@ body {
   box-shadow: 0 4px 32px 0 rgba(0,0,0,0.28);
   transform: scale(1.04) translateY(-2px);
 }
+
+/* Animated card styles */
+.card-animated {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+.card-animated::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  pointer-events: none;
+  transition: box-shadow 0.4s;
+  box-shadow: 0 0 0 0 transparent;
+}
+.card-animated:hover::after {
+  box-shadow: 0 0 24px 4px currentColor;
+  opacity: 0.3;
+}
