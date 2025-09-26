@@ -75,128 +75,349 @@ body {
     min-height: 100vh;
 }
 
-/* --- ENHANCED PREMIUM GRADIENT CARDS --- */
+/* --- ENHANCED PREMIUM GRADIENT CARDS - DARK THEME WITH ROTATING BORDERS --- */
 .gradient-card {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%); /* Slightly darker base */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Thinner, more subtle border */
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Slower, smoother transition */
     position: relative;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), /* Stronger outer shadow */
-                inset 0 0 0 0px transparent; /* Initial inner glow */
-    display: flex; /* Ensure content alignment */
-    flex-direction: column; /* Stack content vertically */
-    justify-content: space-between; /* Push title/desc up, link down */
+    box-shadow: 
+        0 12px 48px rgba(0, 0, 0, 0.6),
+        0 4px 16px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
 }
 
-/* subtle top border shine - unchanged, still good! */
+/* Rotating Border Animation */
 .gradient-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); /* Reduced intensity */
-    opacity: 0.7; /* Make it less prominent */
+    inset: -2px;
+    border-radius: 20px;
+    padding: 2px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(255, 255, 255, 0.4) 60deg,
+        rgba(255, 255, 255, 0.6) 120deg,
+        transparent 180deg,
+        rgba(255, 255, 255, 0.3) 240deg,
+        transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotate-border 8s linear infinite;
+    z-index: -1;
 }
 
-/* Inner glow / border on hover */
+/* Glowing backdrop effect */
 .gradient-card::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: -20px;
     border-radius: 20px;
-    border: 0px solid transparent; /* Initial transparent border */
-    transition: border 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth border transition */
-    pointer-events: none; /* Make sure it doesn't interfere with clicks */
-    z-index: 1; /* Ensure it's above other elements but below content */
+    background: conic-gradient(
+        from 90deg,
+        transparent 0deg,
+        rgba(255, 255, 255, 0.1) 90deg,
+        rgba(255, 255, 255, 0.2) 180deg,
+        transparent 270deg
+    );
+    filter: blur(20px);
+    animation: rotate-border 12s linear infinite reverse;
+    z-index: -2;
+    opacity: 0.7;
 }
 
 .gradient-card:hover {
-    transform: translateY(-10px) scale(1.02); /* More pronounced lift and scale */
-    border-color: rgba(255, 255, 255, 0.2); /* Slightly stronger border on hover */
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6), /* Deeper shadow on hover */
-                inset 0 0 0 1px rgba(255, 255, 255, 0.05), /* Subtle inner ring */
-                inset 0 0 50px rgba(255, 255, 255, 0.02); /* Soft inner glow */
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 32px 80px rgba(0, 0, 0, 0.8),
+        0 16px 32px rgba(0, 0, 0, 0.5);
+    background: rgba(15, 23, 42, 0.98);
 }
 
-/* Active inner border on hover */
+.gradient-card:hover::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(255, 255, 255, 0.6) 60deg,
+        rgba(255, 255, 255, 0.8) 120deg,
+        transparent 180deg,
+        rgba(255, 255, 255, 0.5) 240deg,
+        transparent 360deg
+    );
+    animation-duration: 4s;
+}
+
 .gradient-card:hover::after {
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Visible inner border on hover */
+    opacity: 1;
+    animation-duration: 6s;
 }
 
-/* --- Color Variations - Adjusted to blend better with dark theme --- */
-.card-blue {
-    background: linear-gradient(145deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.08) 100%);
-    border-color: rgba(59, 130, 246, 0.2);
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.05); /* Lighter shadow */
-}
-.card-blue:hover {
-    box-shadow: 0 25px 70px rgba(59, 130, 246, 0.2), /* More intense hover shadow */
-                inset 0 0 0 1px rgba(59, 130, 246, 0.1),
-                inset 0 0 50px rgba(59, 130, 246, 0.05);
+/* Rotating Border Keyframes */
+@keyframes rotate-border {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
+/* --- COLOR VARIANTS WITH UNIQUE ROTATING BORDERS --- */
 
-.card-purple {
-    background: linear-gradient(145deg, rgba(147, 51, 234, 0.15) 0%, rgba(126, 34, 206, 0.08) 100%);
-    border-color: rgba(147, 51, 234, 0.2);
-    box-shadow: 0 8px 32px rgba(147, 51, 234, 0.05);
-}
-.card-purple:hover {
-    box-shadow: 0 25px 70px rgba(147, 51, 234, 0.2),
-                inset 0 0 0 1px rgba(147, 51, 234, 0.1),
-                inset 0 0 50px rgba(147, 51, 234, 0.05);
-}
-
-.card-pink {
-    background: linear-gradient(145deg, rgba(236, 72, 153, 0.15) 0%, rgba(219, 39, 119, 0.08) 100%);
-    border-color: rgba(236, 72, 153, 0.2);
-    box-shadow: 0 8px 32px rgba(236, 72, 153, 0.05);
-}
-.card-pink:hover {
-    box-shadow: 0 25px 70px rgba(236, 72, 153, 0.2),
-                inset 0 0 0 1px rgba(236, 72, 153, 0.1),
-                inset 0 0 50px rgba(236, 72, 153, 0.05);
+/* Day 1 - Blue */
+.card-blue::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(59, 130, 246, 0.6) 60deg,
+        rgba(147, 197, 253, 0.8) 120deg,
+        transparent 180deg,
+        rgba(59, 130, 246, 0.4) 240deg,
+        transparent 360deg
+    );
 }
 
-.card-emerald {
-    background: linear-gradient(145deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.08) 100%);
-    border-color: rgba(16, 185, 129, 0.2);
-    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.05);
-}
-.card-emerald:hover {
-    box-shadow: 0 25px 70px rgba(16, 185, 129, 0.2),
-                inset 0 0 0 1px rgba(16, 185, 129, 0.1),
-                inset 0 0 50px rgba(16, 185, 129, 0.05);
-}
-
-.card-amber {
-    background: linear-gradient(145deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.08) 100%);
-    border-color: rgba(245, 158, 11, 0.2);
-    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.05);
-}
-.card-amber:hover {
-    box-shadow: 0 25px 70px rgba(245, 158, 11, 0.2),
-                inset 0 0 0 1px rgba(245, 158, 11, 0.1),
-                inset 0 0 50px rgba(245, 158, 11, 0.05);
+.card-blue::after {
+    background: conic-gradient(
+        from 90deg,
+        transparent 0deg,
+        rgba(59, 130, 246, 0.2) 90deg,
+        rgba(147, 197, 253, 0.3) 180deg,
+        transparent 270deg
+    );
 }
 
-.card-cyan {
-    background: linear-gradient(145deg, rgba(34, 211, 238, 0.15) 0%, rgba(6, 182, 212, 0.08) 100%);
-    border-color: rgba(34, 211, 238, 0.2);
-    box-shadow: 0 8px 32px rgba(34, 211, 238, 0.05);
+.card-blue:hover::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(59, 130, 246, 0.8) 60deg,
+        rgba(147, 197, 253, 1) 120deg,
+        transparent 180deg,
+        rgba(59, 130, 246, 0.6) 240deg,
+        transparent 360deg
+    );
 }
-.card-cyan:hover {
-    box-shadow: 0 25px 70px rgba(34, 211, 238, 0.2),
-                inset 0 0 0 1px rgba(34, 211, 238, 0.1),
-                inset 0 0 50px rgba(34, 211, 238, 0.05);
+
+/* Day 2 - Purple */
+.card-purple::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(147, 51, 234, 0.6) 60deg,
+        rgba(196, 181, 253, 0.8) 120deg,
+        transparent 180deg,
+        rgba(147, 51, 234, 0.4) 240deg,
+        transparent 360deg
+    );
+}
+
+.card-purple::after {
+    background: conic-gradient(
+        from 90deg,
+        transparent 0deg,
+        rgba(147, 51, 234, 0.2) 90deg,
+        rgba(196, 181, 253, 0.3) 180deg,
+        transparent 270deg
+    );
+}
+
+.card-purple:hover::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(147, 51, 234, 0.8) 60deg,
+        rgba(196, 181, 253, 1) 120deg,
+        transparent 180deg,
+        rgba(147, 51, 234, 0.6) 240deg,
+        transparent 360deg
+    );
+}
+
+/* Day 3 - Pink */
+.card-pink::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(236, 72, 153, 0.6) 60deg,
+        rgba(251, 207, 232, 0.8) 120deg,
+        transparent 180deg,
+        rgba(236, 72, 153, 0.4) 240deg,
+        transparent 360deg
+    );
+}
+
+.card-pink::after {
+    background: conic-gradient(
+        from 90deg,
+        transparent 0deg,
+        rgba(236, 72, 153, 0.2) 90deg,
+        rgba(251, 207, 232, 0.3) 180deg,
+        transparent 270deg
+    );
+}
+
+.card-pink:hover::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(236, 72, 153, 0.8) 60deg,
+        rgba(251, 207, 232, 1) 120deg,
+        transparent 180deg,
+        rgba(236, 72, 153, 0.6) 240deg,
+        transparent 360deg
+    );
+}
+
+/* Day 4 - Emerald */
+.card-emerald::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(16, 185, 129, 0.6) 60deg,
+        rgba(167, 243, 208, 0.8) 120deg,
+        transparent 180deg,
+        rgba(16, 185, 129, 0.4) 240deg,
+        transparent 360deg
+    );
+}
+
+.card-emerald::after {
+    background: conic-gradient(
+        from 90deg,
+        transparent 0deg,
+        rgba(16, 185, 129, 0.2) 90deg,
+        rgba(167, 243, 208, 0.3) 180deg,
+        transparent 270deg
+    );
+}
+
+.card-emerald:hover::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(16, 185, 129, 0.8) 60deg,
+        rgba(167, 243, 208, 1) 120deg,
+        transparent 180deg,
+        rgba(16, 185, 129, 0.6) 240deg,
+        transparent 360deg
+    );
+}
+
+/* Day 5 - Amber */
+.card-amber::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(245, 158, 11, 0.6) 60deg,
+        rgba(254, 215, 170, 0.8) 120deg,
+        transparent 180deg,
+        rgba(245, 158, 11, 0.4) 240deg,
+        transparent 360deg
+    );
+}
+
+.card-amber::after {
+    background: conic-gradient(
+        from 90deg,
+        transparent 0deg,
+        rgba(245, 158, 11, 0.2) 90deg,
+        rgba(254, 215, 170, 0.3) 180deg,
+        transparent 270deg
+    );
+}
+
+.card-amber:hover::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(245, 158, 11, 0.8) 60deg,
+        rgba(254, 215, 170, 1) 120deg,
+        transparent 180deg,
+        rgba(245, 158, 11, 0.6) 240deg,
+        transparent 360deg
+    );
+}
+
+/* Day 6 - Cyan */
+.card-cyan::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(6, 182, 212, 0.6) 60deg,
+        rgba(165, 243, 252, 0.8) 120deg,
+        transparent 180deg,
+        rgba(6, 182, 212, 0.4) 240deg,
+        transparent 360deg
+    );
+}
+
+.card-cyan::after {
+    background: conic-gradient(
+        from 90deg,
+        transparent 0deg,
+        rgba(6, 182, 212, 0.2) 90deg,
+        rgba(165, 243, 252, 0.3) 180deg,
+        transparent 270deg
+    );
+}
+
+.card-cyan:hover::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(6, 182, 212, 0.8) 60deg,
+        rgba(165, 243, 252, 1) 120deg,
+        transparent 180deg,
+        rgba(6, 182, 212, 0.6) 240deg,
+        transparent 360deg
+    );
+}
+
+/* Day 7 - Orange */
+.card-orange::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(249, 115, 22, 0.6) 60deg,
+        rgba(254, 215, 170, 0.8) 120deg,
+        transparent 180deg,
+        rgba(249, 115, 22, 0.4) 240deg,
+        transparent 360deg
+    );
+}
+
+.card-orange::after {
+    background: conic-gradient(
+        from 90deg,
+        transparent 0deg,
+        rgba(249, 115, 22, 0.2) 90deg,
+        rgba(254, 215, 170, 0.3) 180deg,
+        transparent 270deg
+    );
+}
+
+.card-orange:hover::before {
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(249, 115, 22, 0.8) 60deg,
+        rgba(254, 215, 170, 1) 120deg,
+        transparent 180deg,
+        rgba(249, 115, 22, 0.6) 240deg,
+        transparent 360deg
+    );
 }
 
 /* Enhanced animations */
@@ -333,4 +554,94 @@ body {
 .animate-text-gradient {
   background-size: 200% auto;
   animation: text-gradient-shine 5s linear infinite;
+}
+
+
+* Add to your global CSS file */
+.card-dark {
+  background: #18181b;
+  border: 2px solid #27272a;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.25);
+  transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+}
+.card-dark:hover {
+  border-color: #6366f1;
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(99,102,241,0.15);
+}
+
+/* New card styles */
+.card {
+  position: relative;
+  width: 190px;
+  height: 254px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -5px;
+  margin: auto;
+  width: 200px;
+  height: 264px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+.heading {
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+.card p:not(.heading) {
+  font-size: 14px;
+}
+.card p:last-child {
+  color: #e81cff;
+  font-weight: 600;
+}
+.card:hover::after {
+  filter: blur(30px);
+}
+.card:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+
+/* Uiverse card styles */
+.card-uiverse {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  background: #18181b;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.card-uiverse:hover {
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.28);
+  transform: scale(1.04) translateY(-2px);
 }
