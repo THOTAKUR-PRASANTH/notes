@@ -575,93 +575,13 @@ body {
   box-shadow: 0 8px 32px 0 rgba(99,102,241,0.15);
 }
 
-/* New card styles */
-.card {
-  position: relative;
-  width: 190px;
-  height: 254px;
-  background-color: #000;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  padding: 12px;
-  gap: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  left: -5px;
-  margin: auto;
-  width: 200px;
-  height: 264px;
-  border-radius: 10px;
-  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
-  z-index: -10;
-  pointer-events: none;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.card::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
-  transform: translate3d(0, 0, 0) scale(0.95);
-  filter: blur(20px);
-}
-.heading {
-  font-size: 20px;
-  text-transform: capitalize;
-  font-weight: 700;
-}
-.card p:not(.heading) {
-  font-size: 14px;
-}
-.card p:last-child {
-  color: #e81cff;
-  font-weight: 600;
-}
-.card:hover::after {
-  filter: blur(30px);
-}
-.card:hover::before {
-  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
-}
-
-/* Uiverse card styles */
-.card-uiverse {
-  position: relative;
-  min-width: 0;
-  min-height: 0;
-  background: #18181b;
-  border-radius: 1rem;
-  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
-  transition: box-shadow 0.3s, transform 0.2s;
-}
-.card-uiverse:hover {
-  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.28);
-  transform: scale(1.04) translateY(-2px);
-}
-
-/* Animated card styles */
+/* Glow effect for cards */
 .card-animated {
   position: relative;
   z-index: 0;
   overflow: hidden;
-}
-.card-animated::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 0.75rem;
-  pointer-events: none;
   transition: box-shadow 0.4s;
-  box-shadow: 0 0 0 0 transparent;
 }
-.card-animated:hover::after {
-  box-shadow: 0 0 24px 4px currentColor;
-  opacity: 0.3;
+.card-animated:hover {
+  box-shadow: 0 0 24px 4px var(--tw-border-opacity, 0.5);
 }
