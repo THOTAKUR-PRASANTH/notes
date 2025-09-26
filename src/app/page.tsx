@@ -147,7 +147,7 @@ export default function HomePage() {
             <a
               key={card.day}
               href={card.link}
-              className={`card-animated rounded-xl p-6 flex flex-col justify-between shadow-lg transition-transform hover:scale-105 bg-gradient-to-br ${card.gradient}`}
+              className={`card-animated rounded-xl p-6 flex flex-col justify-between shadow-lg transition-transform hover:scale-105 bg-gradient-to-br ${card.gradient.replace(/\/\d{2}/g, "")}`}
               style={{ border: `2px solid transparent` }}
               onMouseEnter={e => (e.currentTarget.style.borderColor = borderColor)}
               onMouseLeave={e => (e.currentTarget.style.borderColor = "transparent")}
@@ -169,4 +169,3 @@ export default function HomePage() {
     </div>
   );
 }
-           
