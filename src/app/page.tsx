@@ -63,50 +63,57 @@ export default function HomePage() {
       day: "Day 1",
       desc: "Introduction and Python basics",
       link: "/day1",
-      accent: "text-blue-300",
-      gradient: "from-blue-400 via-purple-500 to-pink-500",
+      gradient: "from-blue-500 to-indigo-600",
+      border: "border-blue-400"
     },
     {
-      day: "Day 2",
+      day: "Day 2", 
       desc: "Control flow and data structures",
       link: "/day2",
-      accent: "text-purple-300",
-      gradient: "from-purple-400 via-pink-500 to-red-500",
+      gradient: "from-purple-500 to-violet-600",
+      border: "border-purple-400"
     },
     {
       day: "Day 3",
-      desc: "Functions and Modules",
+      desc: "Functions and Modules", 
       link: "/day3",
-      accent: "text-pink-300",
-      gradient: "from-pink-400 via-red-500 to-yellow-500",
+      gradient: "from-pink-500 to-rose-600",
+      border: "border-pink-400"
     },
     {
       day: "Day 4",
       desc: "Data Structures & Lists",
-      link: "/day4",
-      accent: "text-emerald-300",
-      gradient: "from-emerald-400 via-green-500 to-lime-500",
+      link: "/day4", 
+      gradient: "from-emerald-500 to-teal-600",
+      border: "border-emerald-400"
     },
     {
       day: "Day 5",
       desc: "Data structures (tuple, set, dict)",
       link: "/day5",
-      accent: "text-amber-300",
-      gradient: "from-amber-400 via-yellow-500 to-orange-500",
+      gradient: "from-amber-500 to-orange-600",
+      border: "border-amber-400"
     },
     {
       day: "Day 6",
       desc: "File Handling & Exception Handling",
       link: "/day6",
-      accent: "text-cyan-300",
-      gradient: "from-cyan-400 via-blue-500 to-indigo-500",
+      gradient: "from-cyan-500 to-sky-600",
+      border: "border-cyan-400"
     },
     {
-      day: "Day 7",
-      desc: "Object-Oriented Programming (OOP)",
+      day: "Day 7", 
+      desc: "Object-Oriented Programming (classes,objects,inheritance)",
       link: "/day7",
-      accent: "text-orange-300",
-      gradient: "from-orange-400 via-red-500 to-pink-500",
+      gradient: "from-red-500 to-pink-600",
+      border: "border-red-400"
+    },
+    {
+      day: "Day 8",
+      desc: "Object-Oriented Programming (inheritance,polymorphism)",
+      link: "/day8",
+      gradient: "from-lime-500 to-green-600",
+      border: "border-lime-400"
     },
   ];
 
@@ -129,42 +136,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- CARDS GRID (Unchanged) --- */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-        {cards.map((card) => {
-          // Map accent to border color for inline style
-          const borderColors: Record<string, string> = {
-            "text-blue-300": "#60a5fa",
-            "text-purple-300": "#a78bfa",
-            "text-pink-300": "#f472b6",
-            "text-emerald-300": "#6ee7b7",
-            "text-amber-300": "#fcd34d",
-            "text-cyan-300": "#67e8f9",
-            "text-orange-300": "#fdba74",
-          };
-          const borderColor = borderColors[card.accent] || "#fff";
-          return (
-            <a
-              key={card.day}
-              href={card.link}
-              className={`rounded-xl p-6 flex flex-col justify-between shadow-lg transition-transform hover:scale-105 bg-gradient-to-br ${card.gradient.replace(/\/\d{2}/g, "")}`}
-              style={{ border: `2px solid transparent` }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = borderColor)}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = "transparent")}
-            >
-              <div>
-                <h2 className={`text-xl font-bold mb-2 ${card.accent}`}>{card.day}</h2>
-                <p className="text-slate-200 mb-4">{card.desc}</p>
-              </div>
-              <div className={`flex items-center font-semibold ${card.accent}`}>
-                <span className="mr-2">Open</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
-                </svg>
-              </div>
-            </a>
-          );
-        })}
+      {/* --- CARDS GRID (Simple Clean Design) --- */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-6xl mx-auto">
+        {cards.map((card) => (
+          <a
+            key={card.day}
+            href={card.link}
+            className={`bg-gradient-to-br ${card.gradient} ${card.border} border-2 rounded-xl p-6 text-white hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl w-full h-44 flex flex-col justify-between`}
+          >
+            <div className="flex-1">
+              <h2 className="text-xl font-bold mb-3">{card.day}</h2>
+              <p className="text-white text-opacity-90 text-sm leading-relaxed">{card.desc}</p>
+            </div>
+            
+            <div className="flex items-center justify-between mt-4">
+              <span className="text-sm font-medium">Open Course</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </a>
+        ))}
       </section>
     </div>
   );

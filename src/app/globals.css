@@ -575,13 +575,144 @@ body {
   box-shadow: 0 8px 32px 0 rgba(99,102,241,0.15);
 }
 
-/* Glow effect for cards */
+/* Glow effect and readability overlay for cards */
 .card-animated {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s, transform 0.2s;
+}
+.card-animated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38); /* darken background for readability */
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.2s ease;
+}
+.card-animated:hover::before {
+  background: rgba(0, 0, 0, 0.5);
+}
+.card-animated > * {
+  position: relative; /* keep content above the overlay */
+  z-index: 1;
 }
 .card-animated:hover {
-  box-shadow: 0 0 24px 4px var(--tw-border-opacity, 0.5);
+  box-shadow: 0 0 24px 4px rgba(255, 255, 255, 0.12);
+}
+
+/* Remove all old card styles and add modern glass cards */
+
+/* Modern Glass Morphism Cards - Fixed Border */
+.modern-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: 160px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.9) 0%,
+    rgba(30, 41, 59, 0.8) 50%,
+    rgba(15, 23, 42, 0.9) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #3b82f6, #9333ea, #ec4899, #06b6d4) 1;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: borderColorChange 3s ease-in-out infinite;
+}
+
+/* Remove rotating border - use static gradient border instead */
+.modern-card::before {
+  display: none;
+}
+
+.modern-card::after {
+  display: none;
+}
+
+/* Border color animation */
+@keyframes borderColorChange {
+  0% { border-color: #3b82f6; }
+  25% { border-color: #9333ea; }
+  50% { border-color: #ec4899; }
+  75% { border-color: #06b6d4; }
+  100% { border-color: #3b82f6; }
+}
+
+/* Color variants - just change border colors */
+.card-blue {
+  border-color: #3b82f6;
+}
+
+.card-purple {
+  border-color: #9333ea;
+}
+
+.card-pink {
+  border-color: #ec4899;
+}
+
+.card-emerald {
+  border-color: #10b981;
+}
+
+.card-amber {
+  border-color: #f59e0b;
+}
+
+.card-cyan {
+  border-color: #06b6d4;
+}
+
+.card-orange {
+  border-color: #f97316;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .modern-card {
+    max-width: 340px;
+    height: 140px;
+  }
+  
+  .card-content-modern {
+    padding: 16px;
+  }
+  
+  .card-title-modern {
+    font-size: 1.2rem;
+  }
+  
+  .card-desc-modern {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-card {
+    max-width: 300px;
+    height: 130px;
+  }
+  
+  .card-content-modern {
+    padding: 14px;
+  }
+  
+  .card-title-modern {
+    font-size: 1.1rem;
+  }
+  
+  .card-desc-modern {
+    font-size: 0.75rem;
+  }
 }
