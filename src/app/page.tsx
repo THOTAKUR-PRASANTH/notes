@@ -115,6 +115,14 @@ export default function HomePage() {
       gradient: "from-lime-500 to-green-600",
       border: "border-lime-400"
     },
+
+    {
+      day: "Day 9",
+      desc: "Day 9 — libraries(NumPy)", 
+      link: "/day9",
+      gradient: "from-pink-500 to-rose-600",
+      border: "border-pink-400"
+    },
   ];
 
   return (
