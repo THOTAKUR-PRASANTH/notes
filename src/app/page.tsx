@@ -123,6 +123,14 @@ export default function HomePage() {
       gradient: "from-pink-500 to-rose-600",
       border: "border-pink-400"
     },
+
+     {
+      day: "Day 10",
+      desc: "Day 10 — libraries(Pandas)",
+      link: "/day10",
+      gradient: "from-blue-500 to-indigo-600",
+      border: "border-blue-400"
+    },
   ];
 
   return (
