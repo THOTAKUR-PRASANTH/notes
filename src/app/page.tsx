@@ -118,7 +118,7 @@ export default function HomePage() {
 
     {
       day: "Day 9",
-      desc: "Day 9 — libraries(NumPy)", 
+      desc: "libraries(NumPy)", 
       link: "/day9",
       gradient: "from-pink-500 to-rose-600",
       border: "border-pink-400"
@@ -126,11 +126,21 @@ export default function HomePage() {
 
      {
       day: "Day 10",
-      desc: "Day 10 — libraries(Pandas)",
+      desc: "libraries(Pandas)",
       link: "/day10",
       gradient: "from-blue-500 to-indigo-600",
       border: "border-blue-400"
     },
+      {
+      day: "Day 11",
+      desc: "Advanced Data Structures (Stacks, Queues)",
+      link: "/day11",
+      gradient: "from-emerald-500 to-teal-600",
+      border: "border-emerald-400"
+    },
+
+
+    
   ];
 
   return (
