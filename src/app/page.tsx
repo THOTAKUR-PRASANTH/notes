@@ -135,8 +135,16 @@ export default function HomePage() {
       day: "Day 11",
       desc: "Advanced Data Structures (Stacks, Queues)",
       link: "/day11",
-      gradient: "from-emerald-500 to-teal-600",
-      border: "border-emerald-400"
+      gradient: "from-orange-500 to-pink-500",
+      border: "border-orange-400"
+    },
+    
+      {
+      day: "Day 12",
+      desc: "Practical exercises",
+      link: "/day12",
+      gradient: "from-fuchsia-500 to-yellow-400",
+      border: "border-fuchsia-400"
     },
 
 
