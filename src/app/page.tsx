@@ -146,7 +146,13 @@ export default function HomePage() {
       gradient: "from-fuchsia-500 to-yellow-400",
       border: "border-fuchsia-400"
     },
-
+    {
+      day: "Day 13",
+      desc: "Advanced Data Structures (Linked Lists)",
+      link: "/day13",
+      gradient: "from-indigo-500 to-sky-500",
+      border: "border-indigo-400"
+    },
 
     
   ];
