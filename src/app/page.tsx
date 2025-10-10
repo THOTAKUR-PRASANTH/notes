@@ -150,8 +150,8 @@ export default function HomePage() {
       day: "Day 13",
       desc: "Advanced Data Structures (Linked Lists)",
       link: "/day13",
-      gradient: "from-indigo-500 to-sky-500",
-      border: "border-indigo-400"
+      gradient: "from-sky-400 via-indigo-500 to-purple-600",
+      border: "border-sky-400"
     },
 
     
