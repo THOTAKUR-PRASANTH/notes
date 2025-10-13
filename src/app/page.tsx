@@ -153,13 +153,20 @@ export default function HomePage() {
       gradient: "from-sky-400 via-indigo-500 to-purple-600",
       border: "border-sky-400"
     },
-
+    
+    {
+      day: "Day 14",
+      desc: "Error Handling And Debugging",
+      link: "/day14",
+      gradient: "from-yellow-400 via-pink-500 to-red-500",
+      border: "border-yellow-400"
+    },
     
   ];
 
   return (
     <div className="space-y-12 py-16">
-      {/* --- HERO SECTION --- */}
+      
       <section className="text-center fade-in pb-12">
         <div className="flex flex-col items-center justify-center gap-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight h-20 flex items-center">
@@ -167,7 +174,7 @@ export default function HomePage() {
               {displayedText}
               <span className="animate-blink">|</span>
             </span>
-            {/* Using the icon component directly */}
+            
             <LaughingIcon className="ml-2 h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 text-pink-400" />
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl">
@@ -176,7 +183,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- CARDS GRID (Simple Clean Design) --- */}
+  
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-6xl mx-auto">
         {cards.map((card) => (
           <a
