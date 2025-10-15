@@ -42,15 +42,15 @@ def register_user():
         if user['username'] == username:
             print("Username already exists. Please login.")
             return
-        else:
-            new_user ={
-                "username": username,
-                "email": email,
-                "password": password
-            }
-            users.append(new_user)
-            with open(User_Deatils_File, 'w') as file:
-                json.dump(users, file, indent=4)
+        
+    new_user ={
+        "username": username,
+        "email": email,
+        "password": password
+        }
+    users.append(new_user)
+    with open(User_Deatils_File, 'w') as file:
+        json.dump(users, file, indent=4)
 
 
 while True:

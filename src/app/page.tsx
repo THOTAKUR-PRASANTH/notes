@@ -169,6 +169,13 @@ export default function HomePage() {
       gradient: "from-green-400 via-cyan-500 to-blue-500",
       border: "border-cyan-400"
     },
+    {
+      day: "Day 16",
+      desc: "Mini Project Part-2",
+      link: "/day16",
+      gradient: "from-purple-400 via-pink-500 to-orange-400",
+      border: "border-pink-400"
+    },
     
   ];
 

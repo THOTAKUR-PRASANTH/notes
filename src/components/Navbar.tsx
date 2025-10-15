@@ -18,7 +18,8 @@ const days: { href: string; label: string }[] = [
     { href: "/day12", label: "Day 12" },
     { href: "/day13", label: "Day 13" },
     { href: "/day14", label: "Day 14" },
-        { href: "/day15", label: "Day 15" },
+    { href: "/day15", label: "Day 15" },
+    { href: "/day16", label: "Day 16" },
 ]
 
 // Changed to a default export to resolve the Server Component error
