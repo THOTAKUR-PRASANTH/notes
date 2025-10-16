@@ -34,7 +34,7 @@ export default function RootLayout({
                 <span>Developed by</span>
                 {/* Added text-glow-purple class for the highlight effect */}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent font-semibold text-glow-purple">
-                  Prashanth_chowdari
+                  <a href='https://www.prashanth.app/'>Prashanth_chowdari</a>
                 </span>
               </div>
             </div>
