@@ -183,6 +183,13 @@ export default function HomePage() {
       gradient: "from-red-400 via-yellow-400 to-green-400",
       border: "border-green-400"
     },
+    {
+      day: "Day 18",
+      desc: "Decorators and Generators",
+      link: "/day18",
+      gradient: "from-fuchsia-500 to-yellow-400",
+      border: "border-fuchsia-400"
+    },
     
   ];
 
