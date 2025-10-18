@@ -190,6 +190,13 @@ export default function HomePage() {
       gradient: "from-fuchsia-500 to-yellow-400",
       border: "border-fuchsia-400"
     },
+    {
+      day: "Day 19",
+      desc: "Descriptive Statistics(Mean, median, mode)",
+      link: "/day19", 
+      gradient: "from-emerald-500 to-teal-600",
+      border: "border-emerald-400"
+    },
     
   ];
 
