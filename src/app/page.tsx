@@ -197,6 +197,13 @@ export default function HomePage() {
       gradient: "from-emerald-500 to-teal-600",
       border: "border-emerald-400"
     },
+    {
+      day: "Day 20",
+      desc: "Descriptive Statistics(Variance, standard deviation)",
+      link: "/day20",
+      gradient: "from-green-400 via-cyan-500 to-blue-500",
+      border: "border-cyan-400"
+    },
     
   ];
 
